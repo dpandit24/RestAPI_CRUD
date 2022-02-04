@@ -11,6 +11,11 @@ router.get('/branch/:id', async (request, response) => {  // fetch by id
     response.send(data);
 });
 
+router.get('/branch', async (request, response) => {  // fetch by id
+    const data = await Branch.find();
+    response.send(data);
+});
+
 router.post('/branch', async (request, response) => {    // insert
     const branch = new Branch(request.body)
     await branch.save();
