@@ -22,6 +22,12 @@ router.post('/branch', async (request, response) => {    // insert
     response.send(branch);
 })
 
+router.post('/student', async (request, response) => {    // insert
+    const student = new Student(request.body)
+    await student.save();
+    response.send(branch);
+})
+
 router.patch('/branch/:id', async (request, response) => {    // update
     const _id = request.params.id;
     const branch = await Branch.findByIdAndUpdate(_id, request.body, {new: true});
