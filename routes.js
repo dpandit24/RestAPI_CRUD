@@ -43,5 +43,10 @@ router.delete('/branch/:id', async (request, response) => {   // delete by id
         response.send(e);
     }
 })
+router.get('/student/:id', async (request, response) => {  // fetch by id
+    const _id = request.params.id;
+    const data = await Student.findById(_id);
+    response.send(data);
+});
 
 module.exports = router;
