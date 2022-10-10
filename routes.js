@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Branch = require('./models/branch');
 const Loan = require('./models/loan');
+const Student = require('./models/student');
 const req = require('express/lib/request');
 
 router.get('/branch/:id', async (request, response) => {  // fetch by id
@@ -13,6 +14,11 @@ router.get('/branch/:id', async (request, response) => {  // fetch by id
 
 router.get('/branch', async (request, response) => {  // fetch by id
     const data = await Branch.find();
+    response.send(data);
+});
+
+router.get('/student', async (request, response) => {  // fetch by id
+    const data = await Student.find();
     response.send(data);
 });
 
