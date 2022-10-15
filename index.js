@@ -19,6 +19,10 @@ mongoose.connect(uri, {useNewUrlParser: true}).then(() => { // if connected succ
         response.sendFile('index.html',{root:__dirname});
     })
     
+     app.get('/cricket', (request, response) => {
+        response.sendFile('index.html',{root:__dirname});
+    })
+    
     app.listen(port, () => {    // starting server
         console.log('server started');
     });
