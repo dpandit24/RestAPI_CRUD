@@ -61,4 +61,9 @@ router.get('/student/:id', async (request, response) => {  // fetch by id
     response.send(data);
 });
 
+router.get('/phone/:id', async (request, response) => {  // fetch by id
+    const _id = request.params.id;
+    const data = await Phone.findById(_id);
+    response.send(data);
+});
 module.exports = router;
