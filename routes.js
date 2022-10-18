@@ -29,6 +29,12 @@ router.get('/books', async (request, response) => {  // fetch by id
     response.send(data);
 });
 
+router.get('/books/:id', async (request, response) => {  // fetch by id
+    const _id = request.params.id;
+    const data = await Book.findById(_id);
+    response.send(data);
+});
+
 router.post('/branch', async (request, response) => {    // insert
     const branch = new Branch(request.body)
     await branch.save();
@@ -64,6 +70,12 @@ router.get('/student/:id', async (request, response) => {  // fetch by id
 
 router.get('/phone', async (request, response) => {  // fetch by id
     const data = await Phone.find();
+    response.send(data);
+});
+
+router.get('/phone/:id', async (request, response) => {  // fetch by id
+    const _id = request.params.id;
+    const data = await Phone.findById(_id);
     response.send(data);
 });
 
