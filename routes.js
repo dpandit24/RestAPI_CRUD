@@ -5,6 +5,8 @@ const Branch = require('./models/branch');
 const Loan = require('./models/loan');
 const Student = require('./models/student');
 const req = require('express/lib/request');
+const Book = require('./models/books');
+const Phone = require('./models/phone');
 
 router.get('/branch/:id', async (request, response) => {  // fetch by id
     const _id = request.params.id;
@@ -19,6 +21,17 @@ router.get('/branch', async (request, response) => {  // fetch by id
 
 router.get('/student', async (request, response) => {  // fetch by id
     const data = await Student.find();
+    response.send(data);
+});
+
+router.get('/books', async (request, response) => {  // fetch by id
+    const data = await Book.find();
+    response.send(data);
+});
+
+router.get('/books/:id', async (request, response) => {  // fetch by id
+    const _id = request.params.id;
+    const data = await Book.findById(_id);
     response.send(data);
 });
 
@@ -52,6 +65,17 @@ router.delete('/branch/:id', async (request, response) => {   // delete by id
 router.get('/student/:id', async (request, response) => {  // fetch by id
     const _id = request.params.id;
     const data = await Student.findById(_id);
+    response.send(data);
+});
+
+router.get('/phone', async (request, response) => {  // fetch by id
+    const data = await Phone.find();
+    response.send(data);
+});
+
+router.get('/phone/:id', async (request, response) => {  // fetch by id
+    const _id = request.params.id;
+    const data = await Phone.findById(_id);
     response.send(data);
 });
 
